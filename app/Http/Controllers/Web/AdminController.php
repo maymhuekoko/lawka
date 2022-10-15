@@ -483,8 +483,10 @@ class AdminController extends Controller
             ->where('print',0)
             ->get();
             // dd($option_name);
+
             $orders = DB::table('option_shop_order')->orderBy('id','desc')->first();
             // dd($orders);
+            // console.log($option_name , $orders);
             $date = new DateTime('Asia/Yangon');
              $real_date = $date->format('d-m-Y h:i:s');
 
