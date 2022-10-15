@@ -74,12 +74,50 @@ class AdminController extends Controller
         return redirect()->route('employee_list');
 
     }
+    protected function updateEmployee(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|unique:App\User,email',
+            'password' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+
+            alert()->error("Something Wrong! Validation Error");
+
+            return redirect()->back();
+        }
+
+        $image_name = "user.jpg";
+
+
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => \Hash::make($request->password),
+                'photo_path' => $image_name,
+                'phone' => $request->phone,
+                'address' => $request->address,
+                'role_flag' => $request->role_name,
+                'prohibition_flag' => 1,
+            ]);
+
+
+
+        alert()->success('Successfully Added');
+
+        return redirect()->route('employee_list');
+
+    }
 
     protected function getEmployeeDetails($id){
 
         try {
 
-            $employee = Employee::findOrFail($id);
+            $employee = User::findOrFail($id);
 
         } catch (\Exception $e) {
 
@@ -384,6 +422,59 @@ class AdminController extends Controller
 	}
     //end date
 
+    // public function mobileprint(Request $request)
+    // {
+    //         $orders = ShopOrder::where("is_mobile",1)->with('option')->with('table')->orderBy('id','desc')->first();
+    //         // dd($orders);
+    //         $option_name = DB::table('option_shop_order')
+    //         ->where('shop_order_id',$orders->id)
+    //         ->where('print',0)
+    //         ->get();
+    //         // dd($option_name);
+
+    //         $date = new DateTime('Asia/Yangon');
+    //          $real_date = $date->format('d-m-Y h:i:s');
+
+    //          $wname = session()->get('user')->name;
+
+    //     $name = [];
+	// 	foreach($option_name as $optionss)
+	// 	{
+	// 	$oname = Option::where('id',$optionss->option_id)->with('menu_item')->first();
+	// 	array_push($name,$oname);
+	// 	}
+    //     // dd($name);
+    //     // $print = DB::table('option_shop_order')
+    //     //     ->where('shop_order_id',$orders->id)
+    //     //     ->update(['print' => 1]);
+    //         if($orders){
+    //             return response()->json([
+    //                 'name' => $name,
+    //                 'optqty' => $option_name,
+    //                 'date' => $real_date,
+    //                 'waiter' => $wname,
+    //                 'order_table' => $orders,
+    //             ]);
+    //         }else{
+    //             return response()->json(null);
+    //         }
+    // }
+
+
+    // public function addmobileprint(Request $request)
+    // {
+    //         $orders = ShopOrder::where("is_mobile",1)->with('option')->with('table')->orderBy('id','desc')->first();
+    //         // dd($orders);
+    //         $print = DB::table('option_shop_order')
+    //         ->where('shop_order_id',$orders->id)
+    //         ->update(['print' => 1]);
+
+    //             return response()->json([
+    //                 'data' => 'success'
+    //             ],200);
+
+    // }
+
     public function mobileprint(Request $request)
     {
             // $orders = ShopOrder::where("is_mobile",1)->with('option')->with('table')->orderBy('id','desc')->first();
@@ -421,22 +512,6 @@ class AdminController extends Controller
             // }
     }
 
-
-
-    // public function addmobileprint(Request $request)
-    // {
-    //         $orders = ShopOrder::where("id",$request->order_id)->with('option')->with('table')->orderBy('id','desc')->first();
-    //         // dd($orders);
-    //     $print = DB::table('option_shop_order')
-    //         ->where('shop_order_id',$orders->id)
-    //         ->update(['print' => 1]);
-
-    //             return response()->json([
-    //                 'data' => 'success'
-    //             ],200);
-
-    // }
-
     protected function getFinicial(Request $request){
         return view('Admin.financial_panel');
     }
@@ -472,6 +547,7 @@ class AdminController extends Controller
 
 
             }
+
             foreach($shop_voucher_lists as $shop_voucher_list){
                 foreach($shop_voucher_list->option as $shop_option){
                     $shop_total_sale_price+=$shop_option->sale_price;
@@ -523,6 +599,8 @@ class AdminController extends Controller
                     }
 
             }
+
+
 
             return response()->json([
                 "allShopAndDeli"=>0,

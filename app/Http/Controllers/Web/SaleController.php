@@ -52,6 +52,15 @@ class SaleController extends Controller
 		return view('Sale.delivery_pending_lists', compact('pending_lists'));
 	}
 
+    protected function notification(Request $request){
+        $shop_lists = ShopOrder::where('status', 1)->get();
+        $deli_lists = Order::where('status', 2)->get();
+        return response()->json([
+            'shop' => $shop_lists,
+            'deli' => $deli_lists
+        ],200);
+    }
+
 	protected function gotopendinglists(){
 
 		$pending_lists = ShopOrder::where('status', 1)->get();
@@ -953,7 +962,8 @@ foreach($code_lists as $code){
     protected function getFilterFinishedOrderList(Request $request){
 
     	$voucher = Voucher::whereBetween('date', [$request->start_date, $request->end_date])->with('shopOrder')->with('order')->get();
-
+        // dd($voucher[0]->shopOrder->id);
+        // dd($deli);
 		return response()->json($voucher);
 	}
 

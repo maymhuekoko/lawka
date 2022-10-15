@@ -93,31 +93,31 @@
                                         <div class="drop-title">Notifications</div>
                                     </li>
                                     <li>
-                                        <div class="message-center">
+                                        <div class="message-center" id="noti">
                                             <!-- Message -->
-                                            <a href="#">
+                                            {{-- <a href="{{route('pending_lists')}}">
                                                 <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
                                                 <div class="mail-contnet">
-                                                    <h5>Stock Check<span class="badge badge-danger float-right" id="stockNoti"></span></h5>
-                                                    <small>Updated Item</small>
+                                                    <h5>Pending Shop Order List<span class="badge badge-danger float-right" id="stockNoti"></span></h5>
+                                                    <small>Check Orders</small>
                                                 </div>
-                                            </a>
+                                            </a> --}}
 
-                                            <a href="#">
+                                            {{-- <a href="{{route('delivery_pending_lists')}}">
                                                 <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
                                                 <div class="mail-contnet">
-                                                    <h5>Voucher<span class="badge badge-danger float-right" id="stockNoti"></span></h5>
-                                                    <small>Check Voucher</small>
+                                                    <h5>Pending Delivery Order List<span class="badge badge-danger float-right" id="stockNoti"></span></h5>
+                                                    <small>Check Orders</small>
                                                 </div>
-                                            </a>
+                                            </a> --}}
 
-                                            <a href="#">
+                                            {{-- <a href="#">
                                                 <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
                                                 <div class="mail-contnet">
                                                     <h5>Reorder<span class="badge badge-danger float-right" id="stockNoti"></span></h5>
                                                     <small>Check Reorder Item</small>
                                                 </div>
-                                            </a>
+                                            </a> --}}
                                         </div>
                                     </li>
                                 </ul>
@@ -192,7 +192,7 @@
                                 {{-- <li><a href="{{route('ingredient_list')}}">Ingredient List</a></li> --}}
                                 <li><a href="{{route('customer_complain_list')}}">Code List</a></li>
                                 {{-- <li><a href="{{route('reorder_list')}}">Reorder List</a></li> --}}
-                                <li><a href="{{route('stock_update')}}">Stock Count Update</a></li>
+                                {{-- <li><a href="{{route('stock_update')}}">Stock Count Update</a></li> --}}
 
                             </ul>
                         </li>
@@ -467,7 +467,7 @@
 
 <script>
 
-        setInterval(() => {
+setInterval(() => {
             var rolename= $('#unique_role').val();
 
             // alert(rolename);
@@ -640,6 +640,48 @@
     });
            }
         }, 15000);
+
+        $( document ).ready(function() {
+            $.ajax({
+
+type:'POST',
+
+url:'/getnotification',
+
+data:{
+    "_token":"{{csrf_token()}}",
+},
+
+success:function(data){
+    var html = '';
+    if(data.shop != null){
+        // alert('hey');
+        html += `
+        <a href="{{route('pending_lists')}}">
+            <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
+            <div class="mail-contnet">
+                <h5>Pending Shop Order List<span class="badge badge-danger float-right" id="stockNoti"></span></h5>
+                <small>Check Orders</small>
+            </div>
+        </a>
+        `;
+        $('#noti').html(html);
+    }
+    if(data.deli != null){
+        html += `
+        <a href="{{route('delivery_pending_lists')}}">
+            <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
+            <div class="mail-contnet">
+                <h5>Pending Delivery Order List<span class="badge badge-danger float-right" id="stockNoti"></span></h5>
+                <small>Check Orders</small>
+            </div>
+        </a>
+        `;
+        $('#noti').html(html);
+    }
+}
+})
+          });
 
 
     </script>
