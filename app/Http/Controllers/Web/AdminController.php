@@ -404,7 +404,7 @@ class AdminController extends Controller
 		$oname = Option::where('id',$optionss->option_id)->with('menu_item')->first();
 		array_push($name,$oname);
 		}
-        dd($name);
+        // dd($name);
         // $print = DB::table('option_shop_order')
         //     ->where('shop_order_id',$orders->id)
         //     ->update(['print' => 1]);
