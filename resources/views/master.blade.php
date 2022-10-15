@@ -492,10 +492,7 @@
                     }
 
                   if(data){
-                    // alert(data.waiter);
-                    // alert(mobileprint);
-                    // alert('success');
-                    // var wname=session()->get('user')->name;
+
                     if(data.order_table.id>mobileprint){
                     var items= ``;
                     var jj=0;
@@ -591,7 +588,7 @@
                             <div class="pull-right text-left" style="margin-top:20px;">
                                     <b style="font-size:16px;">Waiter Name : ${data.waiter}</b><br>
                                     <b style="font-size:16px;">Date : <i class="fa fa-calendar"></i> ${data.date}</b><br>
-                                    <b style="font-size:16px;">Table-Number : ${data.order_table.table.table_number}</b><br>
+                                    <b style="font-size:16px;">Table-Number : </b><br>
                                 </font>
                             </div>
                         </div>
@@ -637,25 +634,12 @@
             WinPrint.document.close();
             WinPrint.close();
             }
-            // $.ajax({
 
-            // type:'POST',
-
-            // url:'/add-mobile-print',
-
-            // data:{
-            //     "_token":"{{csrf_token()}}",
-            // },
-
-            // success:function(data){
-            //         console.log(data);
-            // }
-            // })
                 }
         }
     });
            }
-        }, 5000);
+        }, 15000);
 
 
     </script>

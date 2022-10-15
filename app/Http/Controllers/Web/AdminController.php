@@ -386,14 +386,14 @@ class AdminController extends Controller
 
     public function mobileprint(Request $request)
     {
-            $orders = ShopOrder::where("is_mobile",1)->with('option')->with('table')->orderBy('id','desc')->first();
+            // $orders = ShopOrder::where("is_mobile",1)->with('option')->with('table')->orderBy('id','desc')->first();
             // dd($orders->id);
             $option_name = DB::table('option_shop_order')
-            ->where('shop_order_id',$orders->id)
             ->where('print',0)
             ->get();
             // dd($option_name);
-
+            $orders = DB::table('option_shop_order')->orderBy('id','desc')->first();
+            // dd($orders);
             $date = new DateTime('Asia/Yangon');
              $real_date = $date->format('d-m-Y h:i:s');
 
@@ -405,10 +405,10 @@ class AdminController extends Controller
 		array_push($name,$oname);
 		}
         // dd($name);
-        // $print = DB::table('option_shop_order')
-        //     ->where('shop_order_id',$orders->id)
-        //     ->update(['print' => 1]);
-            if($orders){
+        $print = DB::table('option_shop_order')
+            ->where('print',0)
+            ->update(['print' => 1]);
+            // if($orders){
                 return response()->json([
                     'name' => $name,
                     'optqty' => $option_name,
@@ -416,26 +416,26 @@ class AdminController extends Controller
                     'waiter' => $wname,
                     'order_table' => $orders,
                 ]);
-            }else{
-                return response()->json(null);
-            }
+            // }else{
+                // return response()->json(null);
+            // }
     }
 
 
 
-    public function addmobileprint(Request $request)
-    {
-            $orders = ShopOrder::where("is_mobile",1)->with('option')->with('table')->orderBy('id','desc')->first();
-            // dd($orders);
-        $print = DB::table('option_shop_order')
-            ->where('shop_order_id',$orders->id)
-            ->update(['print' => 1]);
+    // public function addmobileprint(Request $request)
+    // {
+    //         $orders = ShopOrder::where("id",$request->order_id)->with('option')->with('table')->orderBy('id','desc')->first();
+    //         // dd($orders);
+    //     $print = DB::table('option_shop_order')
+    //         ->where('shop_order_id',$orders->id)
+    //         ->update(['print' => 1]);
 
-                return response()->json([
-                    'data' => 'success'
-                ],200);
+    //             return response()->json([
+    //                 'data' => 'success'
+    //             ],200);
 
-    }
+    // }
 
     protected function getFinicial(Request $request){
         return view('Admin.financial_panel');
