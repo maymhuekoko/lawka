@@ -482,7 +482,7 @@ class AdminController extends Controller
             $option_name = DB::table('option_shop_order')
             ->where('print',0)
             ->get();
-            dd($option_name);
+            // dd($option_name);
             $orders = DB::table('option_shop_order')->orderBy('id','desc')->first();
             // dd($orders);
             $date = new DateTime('Asia/Yangon');
