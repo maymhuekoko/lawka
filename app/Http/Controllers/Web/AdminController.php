@@ -387,7 +387,7 @@ class AdminController extends Controller
     public function mobileprint(Request $request)
     {
             $orders = ShopOrder::where("is_mobile",1)->with('option')->with('table')->orderBy('id','desc')->first();
-            // dd($orders);
+            // dd($orders->id);
             $option_name = DB::table('option_shop_order')
             ->where('shop_order_id',$orders->id)
             ->where('print',0)
@@ -404,7 +404,7 @@ class AdminController extends Controller
 		$oname = Option::where('id',$optionss->option_id)->with('menu_item')->first();
 		array_push($name,$oname);
 		}
-        // dd($name);
+        dd($name);
         // $print = DB::table('option_shop_order')
         //     ->where('shop_order_id',$orders->id)
         //     ->update(['print' => 1]);
@@ -420,6 +420,8 @@ class AdminController extends Controller
                 return response()->json(null);
             }
     }
+
+
 
     public function addmobileprint(Request $request)
     {

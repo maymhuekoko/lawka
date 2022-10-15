@@ -637,20 +637,20 @@
             WinPrint.document.close();
             WinPrint.close();
             }
-            $.ajax({
+            // $.ajax({
 
-            type:'POST',
+            // type:'POST',
 
-            url:'/add-mobile-print',
+            // url:'/add-mobile-print',
 
-            data:{
-                "_token":"{{csrf_token()}}",
-            },
+            // data:{
+            //     "_token":"{{csrf_token()}}",
+            // },
 
-            success:function(data){
-                    console.log(data);
-            }
-            })
+            // success:function(data){
+            //         console.log(data);
+            // }
+            // })
                 }
         }
     });
