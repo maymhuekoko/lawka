@@ -291,9 +291,9 @@
     function finicialRecord(data){
 
         console.log(data);
-
+        var tot_sale = 0;
         if(data.allShopAndDeli==0){
-            $('#total_sales').text(data.total_sales);
+            // $('#total_sales').text(data.total_sales);
             $('#total_expense').text(data.expenses_indate_amount);
 
             $('#profit').text(data.total_profit);
@@ -311,12 +311,19 @@
 
                 if(value.discount_type == 3){
                     $('#sale_table').append($('<tr>')).append($('<td>').text(value.voucher_code)).append($('<td>').text(value.total_price-value.discount_value)).append($('<td>').text(value.total_quantity)).append($('<td>').text(tableNumber)).append($('<td>').text(value.date)).append($('<td>').append($(button)));
+                        tot_sale += value.total_price-value.discount_value;
                 }
                 else if(value.discount_type == 2){
                     $('#sale_table').append($('<tr>')).append($('<td>').text(value.voucher_code)).append($('<td>').text(value.total_price-(value.total_price/100)*value.discount_value)).append($('<td>').text(value.total_quantity)).append($('<td>').text(tableNumber)).append($('<td>').text(value.date)).append($('<td>').append($(button)));
+                        tot_sale += value.total_price-(value.total_price/100)*value.discount_value;
+                }
+                else if(value.discount_type == 2){
+                    $('#sale_table').append($('<tr>')).append($('<td>').text(value.voucher_code)).append($('<td>').text(0)).append($('<td>').text(value.total_quantity)).append($('<td>').text(tableNumber)).append($('<td>').text(value.date)).append($('<td>').append($(button)));
+
                 }
                 else{
-                    $('#sale_table').append($('<tr>')).append($('<td>').text(value.voucher_code)).append($('<td>').text(value.total_price-value.discount_value)).append($('<td>').text(value.total_quantity)).append($('<td>').text(tableNumber)).append($('<td>').text(value.date)).append($('<td>').append($(button)));
+                    $('#sale_table').append($('<tr>')).append($('<td>').text(value.voucher_code)).append($('<td>').text(value.total_price)).append($('<td>').text(value.total_quantity)).append($('<td>').text(tableNumber)).append($('<td>').text(value.date)).append($('<td>').append($(button)));
+                        tot_sale += value.total_price;
                 }
 
 
@@ -324,7 +331,8 @@
             if(data.voucher_lists.length==0){
                 $('#sale_table').append($('<tr>')).append($('<td>').text('No Found'));
             }
-
+            // new total sale
+            $('#total_sales').text(tot_sale);
             $('#report').show();
             $('.allShopAndDeliZero').show();
 
