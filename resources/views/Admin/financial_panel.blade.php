@@ -308,7 +308,7 @@
                 else{
                     var tableNumber = value.shop_order.table.table_number;
                 }
-                $('#sale_table').append($('<tr>')).append($('<td>').text(value.voucher_code)).append($('<td>').text(value.total_price)).append($('<td>').text(value.total_quantity)).append($('<td>').text(tableNumber)).append($('<td>').text(value.date)).append($('<td>').append($(button)));
+                $('#sale_table').append($('<tr>')).append($('<td>').text(value.voucher_code)).append($('<td>').text(value.total_price-value.discount_value)).append($('<td>').text(value.total_quantity)).append($('<td>').text(tableNumber)).append($('<td>').text(value.date)).append($('<td>').append($(button)));
 
             });
             if(data.voucher_lists.length==0){
