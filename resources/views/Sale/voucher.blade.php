@@ -45,9 +45,9 @@
                                     <address>
                                         <strong style="font-size:17px;font-weight:bold;">Law Ka Nat</strong><br>
                                             <strong style="font-size:17px;font-weight:bold;"> Restaurant</strong><br>
-                                            <strong style="font-size:17px;font-weight:bold;"> No 113. (3) Ward, Waizayantar Road</strong><br>
-                                            <strong style="font-size:17px;font-weight:bold;">South Oakkalapa Township, Yangon</strong><br>
-                                            <strong style="font-size:17px;font-weight:bold;"><i class="fas fa-mobile-alt"></i> 09 775 775842</strong><br>
+                                            <strong style="font-size:17px;font-weight:bold;"> No (767), YayLe` Road, Maubin</strong><br>
+                                            <strong style="font-size:17px;font-weight:bold;">Ayeyarwady Region, Myanmar</strong><br>
+                                            <strong style="font-size:17px;font-weight:bold;"><i class="fas fa-mobile-alt"></i> 09 770 725084</strong><br>
                                     </address>
                                 </div>
                                 <div class="pull-right text-left" style="margin-top:20px;">

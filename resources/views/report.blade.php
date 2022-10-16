@@ -448,7 +448,6 @@
                                 'rgba(255,206,86,0.6)',
                                 'rgba(75,192,192,0.6)',
 
-
                             ],
                             data: [total_sales_percent,other_exp_percent,50]
                         }
