@@ -505,7 +505,7 @@ setInterval(() => {
                             <td>(Salad)</td>
                             <td>${v.menu_item.item_name}</td>
                             <td>${v.name}</td>
-                            <td>${data.optqty[jj].quantity}</td>
+                            <td>${data.optqty[jj].quantity - data.optqty[jj].old_quantity}</td>
                         </tr>
                         <tr>
                         <th class="text-danger font-weight-bold">Notes</th>
@@ -519,7 +519,7 @@ setInterval(() => {
                             <td>(Breakfast)</td>
                             <td>${v.menu_item.item_name}</td>
                             <td>${v.name}</td>
-                            <td>${data.optqty[jj].quantity}</td>
+                            <td>${data.optqty[jj].quantity - data.optqty[jj].old_quantity}</td>
                         </tr>
                         <tr>
                         <th class="text-danger font-weight-bold">Notes</th>
@@ -533,7 +533,7 @@ setInterval(() => {
                             <td>(Healthy Food)</td>
                             <td>${v.menu_item.item_name}</td>
                             <td>${v.name}</td>
-                            <td>${data.optqty[jj].quantity}</td>
+                            <td>${data.optqty[jj].quantity - data.optqty[jj].old_quantity}</td>
                         </tr>
                         <tr>
                         <th class="text-danger font-weight-bold">Notes</th>
@@ -547,7 +547,7 @@ setInterval(() => {
                             <td>(Main)</td>
                             <td>${v.menu_item.item_name}</td>
                             <td>${v.name}</td>
-                            <td>${data.optqty[jj].quantity}</td>
+                            <td>${data.optqty[jj].quantity - data.optqty[jj].old_quantity}</td>
                         </tr>
                         <tr>
                         <th class="text-danger font-weight-bold">Notes</th>
@@ -561,7 +561,7 @@ setInterval(() => {
                             <td>(Snacks)</td>
                             <td>${v.menu_item.item_name}</td>
                             <td>${v.name}</td>
-                            <td>${data.optqty[jj].quantity}</td>
+                            <td>${data.optqty[jj].quantity - data.optqty[jj].old_quantity}</td>
                         </tr>
                         <tr>
                         <th class="text-danger font-weight-bold">Notes</th>

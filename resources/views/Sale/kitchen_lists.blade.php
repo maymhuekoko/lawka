@@ -89,7 +89,7 @@
                                         <td class="font-weight-bold">(Salad)</td>
                                         <td class="font-weight-bold">{{$opname->name}}</td>
                                         <td class="font-weight-bold">{{$opname->menu_item->item_name}}</td>
-                                        <td class="font-weight-bold">{{$optqty->quantity}}</td>
+                                        <td class="font-weight-bold">{{$optqty->quantity -$optqty->old_quantity}}</td>
                                         {{-- <td>{{$optqty->note}}</td> --}}
                                     </tr>
                                     @foreach ($notte as $notes)
@@ -107,7 +107,7 @@
                                         <td class="font-weight-bold">(Breakfast)</td>
                                         <td class="font-weight-bold">{{$opname->name}}</td>
                                         <td class="font-weight-bold">{{$opname->menu_item->item_name}}</td>
-                                        <td class="font-weight-bold">{{$optqty->quantity}}</td>
+                                        <td class="font-weight-bold">{{$optqty->quantity -$optqty->old_quantity}}</td>
                                         {{-- <td>{{$optqty->note}}</td> --}}
                                     </tr>
                                     @foreach ($notte as $notes)
@@ -125,7 +125,7 @@
                                         <td class="font-weight-bold">(Healthy Food)</td>
                                         <td class="font-weight-bold">{{$opname->name}}</td>
                                         <td class="font-weight-bold">{{$opname->menu_item->item_name}}</td>
-                                        <td class="font-weight-bold">{{$optqty->quantity}}</td>
+                                        <td class="font-weight-bold">{{$optqty->quantity -$optqty->old_quantity}}</td>
                                         {{-- <td>{{$optqty->note}}</td> --}}
                                     </tr>
                                     @foreach ($notte as $notes)
@@ -143,7 +143,7 @@
                                         <td class="font-weight-bold">(Main)</td>
                                         <td class="font-weight-bold">{{$opname->name}}</td>
                                         <td class="font-weight-bold">{{$opname->menu_item->item_name}}</td>
-                                        <td class="font-weight-bold">{{$optqty->quantity}}</td>
+                                        <td class="font-weight-bold">{{$optqty->quantity -$optqty->old_quantity}}</td>
                                         {{-- <td>{{$optqty->note}}</td> --}}
                                     </tr>
                                     @foreach ($notte as $notes)
@@ -161,7 +161,7 @@
                                         <td class="font-weight-bold">(Snacks)</td>
                                         <td class="font-weight-bold">{{$opname->name}}</td>
                                         <td class="font-weight-bold">{{$opname->menu_item->item_name}}</td>
-                                        <td class="font-weight-bold">{{$optqty->quantity}}</td>
+                                        <td class="font-weight-bold">{{$optqty->quantity -$optqty->old_quantity}}</td>
                                         {{-- <td>{{$optqty->note}}</td> --}}
                                     </tr>
                                     @foreach ($notte as $notes)
@@ -192,7 +192,7 @@
                                         <td class="font-weight-bold">(Salad)</td>
                                         <td class="font-weight-bold">{{$opname->name}}</td>
                                         <td class="font-weight-bold">{{$opname->menu_item->item_name}}</td>
-                                        <td class="font-weight-bold">{{$optqty->quantity}}</td>
+                                        <td class="font-weight-bold">{{$optqty->quantity -$optqty->old_quantity}}</td>
                                         {{-- <td>{{$optqty->note}}</td> --}}
                                     </tr>
                                     @foreach ($notte as $notes)
@@ -210,7 +210,7 @@
                                         <td class="font-weight-bold">(Breakfast)</td>
                                         <td class="font-weight-bold">{{$opname->name}}</td>
                                         <td class="font-weight-bold">{{$opname->menu_item->item_name}}</td>
-                                        <td class="font-weight-bold">{{$optqty->quantity}}</td>
+                                        <td class="font-weight-bold">{{$optqty->quantity -$optqty->old_quantity}}</td>
                                         {{-- <td>{{$optqty->note}}</td> --}}
                                     </tr>
                                     @foreach ($notte as $notes)
@@ -228,7 +228,7 @@
                                         <td class="font-weight-bold">(Healthy Food)</td>
                                         <td class="font-weight-bold">{{$opname->name}}</td>
                                         <td class="font-weight-bold">{{$opname->menu_item->item_name}}</td>
-                                        <td class="font-weight-bold">{{$optqty->quantity}}</td>
+                                        <td class="font-weight-bold">{{$optqty->quantity -$optqty->old_quantity}}</td>
                                         {{-- <td>{{$optqty->note}}</td> --}}
                                     </tr>
                                     @foreach ($notte as $notes)
@@ -246,7 +246,7 @@
                                         <td class="font-weight-bold">(Main)</td>
                                         <td class="font-weight-bold">{{$opname->name}}</td>
                                         <td class="font-weight-bold">{{$opname->menu_item->item_name}}</td>
-                                        <td class="font-weight-bold">{{$optqty->quantity}}</td>
+                                        <td class="font-weight-bold">{{$optqty->quantity -$optqty->old_quantity}}</td>
                                         {{-- <td>{{$optqty->note}}</td> --}}
                                     </tr>
                                     @foreach ($notte as $notes)
@@ -264,7 +264,7 @@
                                         <td class="font-weight-bold">(Snacks)</td>
                                         <td class="font-weight-bold">{{$opname->name}}</td>
                                         <td class="font-weight-bold">{{$opname->menu_item->item_name}}</td>
-                                        <td class="font-weight-bold">{{$optqty->quantity}}</td>
+                                        <td class="font-weight-bold">{{$optqty->quantity -$optqty->old_quantity}}</td>
                                         {{-- <td>{{$optqty->note}}</td> --}}
                                     </tr>
                                     @foreach ($notte as $notes)
@@ -294,7 +294,7 @@
                                         <td class="font-weight-bold">(Salad)</td>
                                         <td class="font-weight-bold">{{$opname->name}}</td>
                                         <td class="font-weight-bold">{{$opname->menu_item->item_name}}</td>
-                                        <td class="font-weight-bold">{{$optqty->quantity}}</td>
+                                        <td class="font-weight-bold">{{$optqty->quantity -$optqty->old_quantity}}</td>
                                         {{-- <td>{{$optqty->note}}</td> --}}
                                     </tr>
                                     @foreach ($notte as $notes)
@@ -312,7 +312,7 @@
                                         <td class="font-weight-bold">(Breakfast)</td>
                                         <td class="font-weight-bold">{{$opname->name}}</td>
                                         <td class="font-weight-bold">{{$opname->menu_item->item_name}}</td>
-                                        <td class="font-weight-bold">{{$optqty->quantity}}</td>
+                                        <td class="font-weight-bold">{{$optqty->quantity -$optqty->old_quantity}}</td>
                                         {{-- <td>{{$optqty->note}}</td> --}}
                                     </tr>
                                     @foreach ($notte as $notes)
@@ -330,7 +330,7 @@
                                         <td class="font-weight-bold">(Healthy Food)</td>
                                         <td class="font-weight-bold"> {{$opname->name}}</td>
                                         <td class="font-weight-bold">{{$opname->menu_item->item_name}}</td>
-                                        <td class="font-weight-bold">{{$optqty->quantity}}</td>
+                                        <td class="font-weight-bold">{{$optqty->quantity -$optqty->old_quantity}}</td>
                                         {{-- <td>{{$optqty->note}}</td> --}}
                                     </tr>
                                     @foreach ($notte as $notes)
@@ -348,7 +348,7 @@
                                         <td class="font-weight-bold">(Main)</td>
                                         <td class="font-weight-bold">{{$opname->name}}</td>
                                         <td class="font-weight-bold">{{$opname->menu_item->item_name}}</td>
-                                        <td class="font-weight-bold">{{$optqty->quantity}}</td>
+                                        <td class="font-weight-bold">{{$optqty->quantity -$optqty->old_quantity}}</td>
                                         {{-- <td>{{$optqty->note}}</td> --}}
                                     </tr>
                                     @foreach ($notte as $notes)
@@ -366,7 +366,7 @@
                                         <td class="font-weight-bold">(Snacks)</td>
                                         <td class="font-weight-bold">{{$opname->name}}</td>
                                         <td class="font-weight-bold">{{$opname->menu_item->item_name}}</td>
-                                        <td class="font-weight-bold">{{$optqty->quantity}}</td>
+                                        <td class="font-weight-bold">{{$optqty->quantity -$optqty->old_quantity}}</td>
                                         {{-- <td>{{$optqty->note}}</td> --}}
                                     </tr>
                                     @foreach ($notte as $notes)

@@ -479,17 +479,19 @@ class AdminController extends Controller
     {
             // $orders = ShopOrder::where("is_mobile",1)->with('option')->with('table')->orderBy('id','desc')->first();
             // dd($orders->id);
-            $option_name = DB::table('option_shop_order')
+            $option_n = DB::table('option_shop_order')
             ->where('print',0)
             ->get();
             // dd(count($option_n));
 
-            // if(count($option_n) == 0 ){
-
-            // }
-            // else{
-            //     $option_name = $option_n;
-            // }
+            if(count($option_n) == 0 ){
+                $option_name = DB::table('option_shop_order')
+                ->where('status',5)
+                ->get();
+            }
+            else{
+                $option_name = $option_n;
+            }
 
 
 
@@ -512,6 +514,10 @@ class AdminController extends Controller
         $print = DB::table('option_shop_order')
             ->where('print',0)
             ->update(['print' => 1]);
+
+            $print1 = DB::table('option_shop_order')
+            ->where('status',5)
+            ->update(['status' => 0]);
             // if($orders){
                 return response()->json([
                     'name' => $name,
