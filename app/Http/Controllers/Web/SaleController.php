@@ -716,7 +716,7 @@ foreach($code_lists as $code){
 
      	foreach ($shop_order->option as $option) {
 
-        	$voucher->option()->attach($option->id, ['quantity' => $option->pivot->quantity,'price' => $option->sale_price]);
+        	$voucher->option()->attach($option->id, ['quantity' => $option->pivot->quantity,'price' => $option->sale_price, 'date' => $re_date]);
 
 			$moption = Option::findorFail($option->id);
 			// dd($moption->id);
@@ -837,7 +837,7 @@ foreach($code_lists as $code){
 
      	foreach ($shop_order->option as $option) {
 
-        	$voucher->option()->attach($option->id, ['quantity' => $option->pivot->quantity,'price' => $option->sale_price]);
+        	$voucher->option()->attach($option->id, ['quantity' => $option->pivot->quantity,'price' => $option->sale_price,'date' => $re_date]);
 
 			$moption = Option::findorFail($option->id);
 			// dd($moption->id);

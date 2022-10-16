@@ -19,6 +19,7 @@ class CreateOptionVoucherTable extends Migration
             $table->unsignedInteger('voucher_id');
             $table->Integer('quantity');
             $table->Integer('price');
+            $table->string('date');
             $table->timestamps();
         });
     }

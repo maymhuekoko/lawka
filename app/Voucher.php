@@ -24,7 +24,7 @@ class Voucher extends Model
     ];
 
     public function option() {
-        return $this->belongsToMany(Option::class)->withPivot('quantity','price');
+        return $this->belongsToMany(Option::class)->withPivot('quantity','price','date');
     }
 
     public function user()
