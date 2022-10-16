@@ -472,7 +472,7 @@ setInterval(() => {
 
             // alert(rolename);
             var mobileprint = localStorage.getItem('mobileprint');
-           if(rolename==1 || rolename==2 || rolename==3 || rolename==4){
+           if(rolename==1){
             //    alert(rolename);
 
                $.ajax({
