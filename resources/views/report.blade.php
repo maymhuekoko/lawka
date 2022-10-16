@@ -55,7 +55,7 @@
                     </p>
                     <div class="row mt-2">
                         <div class="col">
-                            <span class="h2 font-weight-normal mb-0 text-info" style="font-size: 20px;">{{$total_inventory}}  Ks</span>
+                            <span class="h2 font-weight-normal mb-0 text-info" style="font-size: 20px;">{{$total_expense}}  Ks</span>
                         </div>
                         <div class="col-auto">
                             <div class="icon icon-shape text-white rounded-circle shadow" style="background-color:#473C70;">
@@ -433,7 +433,7 @@
                 var data = {
                     labels: [
                         "Total Sales (" + total_sales + " Ks)",
-                        "Total Purchase (" + total_purchase + " Ks)",
+                        // "Total Purchase (" + total_purchase + " Ks)",
                         "Other Expense (" + other_expense + " Ks)",
                         "Net Profit (" + net_profit + " Ks)"
                     ],
@@ -444,13 +444,13 @@
                             backgroundColor: [
 
                                 'rgba(255,99,132,0.6)',
-                                'rgba(54,162,235,0.6)',
+                                // 'rgba(54,162,235,0.6)',
                                 'rgba(255,206,86,0.6)',
                                 'rgba(75,192,192,0.6)',
 
 
                             ],
-                            data: [total_sales_percent,raw_purchase_percent,other_exp_percent,50]
+                            data: [total_sales_percent,other_exp_percent,50]
                         }
                     ]
                 };
@@ -872,7 +872,7 @@
                 var data = {
                     labels: [
                         "Total Sales (" + total_sales + " Ks)",
-                        "Total Purchase (" + total_purchase + " Ks)",
+                        // "Total Purchase (" + total_purchase + " Ks)",
                         "Other Expense (" + other_expense + " Ks)",
                         "Net Profit (" + net_profit + " Ks)"
                     ],
@@ -883,13 +883,13 @@
                             backgroundColor: [
 
                                 'rgba(255,99,132,0.6)',
-                                'rgba(54,162,235,0.6)',
+                                // 'rgba(54,162,235,0.6)',
                                 'rgba(255,206,86,0.6)',
                                 'rgba(75,192,192,0.6)',
 
 
                             ],
-                            data: [total_sales_percent,raw_purchase_percent,other_exp_percent,net_profit_percent]
+                            data: [total_sales_percent,other_exp_percent,net_profit_percent]
                         }
                     ]
                 };
