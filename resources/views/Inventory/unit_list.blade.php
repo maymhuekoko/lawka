@@ -81,8 +81,8 @@
                                     <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#edit_item{{$unit->id}}">
                                     Edit</a>
 
-                                    <a href="{{route('edit_unit_ingredient', $unit->id)}}" class="btn btn-secondary">
-                                    Edit Ingredients</a>
+                                    {{-- <a href="{{route('edit_unit_ingredient', $unit->id)}}" class="btn btn-secondary">
+                                    Edit Ingredients</a> --}}
 
                                     <a href="#" class="btn btn-danger" onclick="ApproveLeave('{{$unit->id}}')">
                                         <i class="mdi mdi-delete"></i>

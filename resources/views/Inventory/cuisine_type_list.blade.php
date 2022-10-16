@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title','Cuisine Type List')
+@section('title','Main Menu List')
 
 @section('place')
 
@@ -8,7 +8,7 @@
     <h3 class="text-themecolor m-b-0 m-t-0">Branch</h3>
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{route('index')}}">Back to Dashborad</a></li>
-        <li class="breadcrumb-item active">Cuisine Type List</li>
+        <li class="breadcrumb-item active">Main Menu List</li>
     </ol>
 </div>
 
@@ -17,8 +17,8 @@
 @section('content')
 
 <div class="row page-titles">
-    <div class="col-md-5 col-8 align-self-center">        
-        <h2 class="font-weight-bold">Cuisine Type List</h2>
+    <div class="col-md-5 col-8 align-self-center">
+        <h2 class="font-weight-bold">Main Menu List</h2>
     </div>
 </div>
 
@@ -27,7 +27,7 @@
     <div class="col-md-8">
         <div class="card shadow">
             <div class="card-body">
-                <h4 class="card-title">Cuisine Type List</h4>
+                <h4 class="card-title">Main Menu List</h4>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
@@ -50,12 +50,12 @@
                                     <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#edit_item{{$cuisine->id}}"><i class="far fa-edit"></i>
                                     Edit</a>
                                 </td>
-                                
+
                                 <div class="modal fade" id="edit_item{{$cuisine->id}}" role="dialog" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                   <div class="modal-header">
-                                    <h4 class="modal-title">Edit Cuisine Type Form</h4>
+                                    <h4 class="modal-title">Edit Main Menu Form</h4>
                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                       </button>
@@ -64,12 +64,12 @@
                                     <div class="modal-body">
                                         <form class="form-material" method="post" action="{{route('cuisine_type_update', $cuisine->id)}}">
                                             @csrf
-                                            <div class="form-group">    
+                                            <div class="form-group">
                                                 <label class="font-weight-bold">Name</label>
-                                                <input type="text" name="name" class="form-control" value="{{$cuisine->name}}" required> 
+                                                <input type="text" name="name" class="form-control" value="{{$cuisine->name}}" required>
                                             </div>
 
-                                            <div class="form-group">    
+                                            <div class="form-group">
                                                 <label class="font-weight-bold">Meal</label>
                                                 <select class="form-control select2 m-b-10" name="meal_id">
                                                     @foreach($meal_lists as $meal)
@@ -79,9 +79,9 @@
                                             </div>
 
                                             <input type="submit" name="btnsubmit" class="btnsubmit float-right btn btn-primary" value="Update">
-                                        </form>           
+                                        </form>
                                     </div>
-                               
+
                               </div>
                                     </div>
                                 </div>
@@ -97,23 +97,23 @@
     <div class="col-md-4">
         <div class="card shadow">
             <div class="card-body">
-                <h3 class="card-title">Cuisine Type Create Form</h3>
+                <h3 class="card-title">Main Menu Create Form</h3>
                 <form class="form-material m-t-40" method="post" action="{{route('cuisine_type_store')}}">
                     @csrf
-                    
-                    <div class="form-group">    
+
+                    <div class="form-group">
                         <label class="font-weight-bold">Name</label>
-                        <input type="text" name="name" class="form-control @error('category_name') is-invalid @enderror" placeholder="Enter Cuisine Type Name" required>
+                        <input type="text" name="name" class="form-control @error('category_name') is-invalid @enderror" placeholder="Enter Main Menu Name" required>
 
                         @error('category_name')
                             <span class="invalid-feedback alert alert-danger" role="alert"  height="100">
                                 {{ $message }}
                             </span>
-                        @enderror 
+                        @enderror
 
                     </div>
 
-                    <div class="form-group">    
+                    <div class="form-group">
                         <label class="font-weight-bold">Choose Meal</label>
                         <select class="form-control select2 m-b-10" name="meal_id" style="width: 100%" >
                             <option value="">Select Meal</option>
