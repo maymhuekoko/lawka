@@ -296,7 +296,7 @@
             // $('#total_sales').text(data.total_sales);
             $('#total_expense').text(data.expenses_indate_amount);
 
-            $('#profit').text(data.total_profit);
+            // $('#profit').text(data.total_profit);
 
             $.each(data.voucher_lists,function(i,value){
                 let url = "{{url('/Order-Voucher/')}}/"+value.id;
@@ -333,6 +333,9 @@
             }
             // new total sale
             $('#total_sales').text(tot_sale);
+            $('#profit').text(tot_sale-data.expenses_indate_amount);
+
+            
             $('#report').show();
             $('.allShopAndDeliZero').show();
 
