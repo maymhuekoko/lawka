@@ -36,19 +36,28 @@
                     </ul>
 
                 </div> --}}
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <select class="form-control custom-select shopOrdelivery">
-                            <option value="1">Shop</option>
-                            <option value="2">Delivery</option>
-                            <option value="3">Total</option>
-                        </select>
-                    </div>
-                </div>
+{{--                <div class="col-md-3">--}}
+{{--                    <div class="form-group">--}}
+{{--                        <select class="form-control custom-select shopOrdelivery">--}}
+{{--                            <option value="1">Shop</option>--}}
+{{--                            <option value="2">Delivery</option>--}}
+{{--                            <option value="3">Total</option>--}}
+{{--                        </select>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
                </div>
 
                <div class="row form-group">
-                <div class="offset-md-3 col-md-3">
+               <div class="col-md-3">
+                   <label for="">Choose Type</label>
+
+                   <select class="form-control custom-select shopOrdelivery">
+                       <option value="1">Shop</option>
+                       <option value="2">Delivery</option>
+                       <option value="3">Total</option>
+                   </select>
+               </div>
+                <div class=" col-md-3">
                     <label for="">Start Date</label>
                     <input type="date" class="form-control" id="start_date">
                 </div>
@@ -56,124 +65,154 @@
                     <label for="">End Date</label>
                     <input type="date" class="form-control" id="end_date">
                 </div>
-                <div class="col-md-3" style="margin-top:35px;">
-                    <button class="btn btn-m btn-primary" onclick="showDateFilterSale()">Search</button>
+                <div class="col-md-3" >
+                    <button style="margin-top: 32px;" class="btn btn-m btn-primary" onclick="showDateFilterSale()">Search</button>
                 </div>
             </div>
 
                 <br/>
-                <div class="tab-content br-n pn">
-                    <div id="navpills-1" class="tab-pane active">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                     <label class="control-label text-success font-weight-bold">daily</label>
-                                    <input type="date" class="form-control" id="daily">
-                                </div>
-                            </div>
+{{--                Daily, Weekly , Monthly Search--}}
+{{--                <div class="tab-content br-n pn">--}}
+{{--                    <div id="navpills-1" class="tab-pane active">--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="col-md-12">--}}
+{{--                                <div class="form-group">--}}
+{{--                                     <label class="control-label text-success font-weight-bold">Daily</label>--}}
+{{--                                    <input type="date" class="form-control" id="daily">--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
-                            <div class="col-md-3 pull-right">
-                                <button class="btn btn-success btn-submit" type="submit" onclick="showDailySale()">
-                                	Search
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+{{--                            <div class="col-md-3 pull-right">--}}
+{{--                                <button class="btn btn-success btn-submit" type="submit" onclick="showDailySale()">--}}
+{{--                                	Search--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
-                    <div id="navpills-2" class="tab-pane">
-                    	<div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="control-label text-success font-weight-bold">weekly</label>
-                                    <select class="form-control custom-select" id="weekly">
-                                        <option value="">select week</option>
-                                        <option value="1">one week</option>
-                                        <option value="2">two week</option>
-                                        <option value="3">three week</option>
-                                        <option value="4">four week</option>
-                                    </select>
-                                </div>
-                            </div>
+{{--                    <div id="navpills-2" class="tab-pane">--}}
+{{--                    	<div class="row">--}}
+{{--                            <div class="col-md-12">--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <label class="control-label text-success font-weight-bold">weekly</label>--}}
+{{--                                    <select class="form-control custom-select" id="weekly">--}}
+{{--                                        <option value="">select week</option>--}}
+{{--                                        <option value="1">one week</option>--}}
+{{--                                        <option value="2">two week</option>--}}
+{{--                                        <option value="3">three week</option>--}}
+{{--                                        <option value="4">four week</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
-                            <div class="col-md-3 pull-right">
-                                <button class="btn btn-success btn-submit" type="submit" onclick="showWeeklySale()">
-                                	Search
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+{{--                            <div class="col-md-3 pull-right">--}}
+{{--                                <button class="btn btn-success btn-submit" type="submit" onclick="showWeeklySale()">--}}
+{{--                                	Search--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
-                    <div id="navpills-3" class="tab-pane">
-                    	<div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="control-label text-success font-weight-bold">monthly</label>
-                                    <select class="form-control custom-select" id="monthly">
-                                        <option value="">select month</option>
-                                        <option value="01">January</option>
-                                        <option value="02">February</option>
-                                        <option value="03">March</option>
-                                        <option value="04">April</option>
-                                        <option value="05">May</option>
-                                        <option value="06">June</option>
-                                        <option value="07">July</option>
-                                        <option value="08">August</option>
-                                        <option value="09">September</option>
-                                        <option value="10">October</option>
-                                        <option value="11">November</option>
-                                        <option value="12">December</option>
-                                    </select>
-                                </div>
-                            </div>
+{{--                    <div id="navpills-3" class="tab-pane">--}}
+{{--                    	<div class="row">--}}
+{{--                            <div class="col-md-12">--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <label class="control-label text-success font-weight-bold">monthly</label>--}}
+{{--                                    <select class="form-control custom-select" id="monthly">--}}
+{{--                                        <option value="">select month</option>--}}
+{{--                                        <option value="01">January</option>--}}
+{{--                                        <option value="02">February</option>--}}
+{{--                                        <option value="03">March</option>--}}
+{{--                                        <option value="04">April</option>--}}
+{{--                                        <option value="05">May</option>--}}
+{{--                                        <option value="06">June</option>--}}
+{{--                                        <option value="07">July</option>--}}
+{{--                                        <option value="08">August</option>--}}
+{{--                                        <option value="09">September</option>--}}
+{{--                                        <option value="10">October</option>--}}
+{{--                                        <option value="11">November</option>--}}
+{{--                                        <option value="12">December</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
-                            <div class="col-md-3 pull-right">
-                                <button class="btn btn-success btn-submit" type="submit" onclick="showMonthlySale()">
-                                	Search
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+{{--                            <div class="col-md-3 pull-right">--}}
+{{--                                <button class="btn btn-success btn-submit" type="submit" onclick="showMonthlySale()">--}}
+{{--                                	Search--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </div>
 
         <div class="card mt-3" id="report">
         	<div class="card-body">
         		<div class="row mt-2 allShopAndDeliZero">
-	                <div class="col-md-6">
+	                <div class="col-md-4">
 	                    <h4 class="text-success font-weight-bold">
-	                    	total sales -
+	                    	Total Sales -
 	                    	<span class="badge badge-pill badge-success" id="total_sales"></span>
 	                    </h4>
 	                </div>
-
-	                <div class="col-md-6">
+                    <div class="col-md-4">
 	                    <h4 class="text-success font-weight-bold">
-	                    	total profit -
+	                    	Total Expenses -
+	                    	<span class="badge badge-pill badge-success" id="total_expense"></span>
+	                    </h4>
+	                </div>
+
+	                <div class="col-md-4">
+	                    <h4 class="text-success font-weight-bold">
+	                    	Total Profit -
 	                    	<span class="badge badge-pill badge-success" id="profit"></span>
 	                    </h4>
 	                </div>
+{{--                    <div class="row">--}}
+{{--                        <div class="col-md-12">--}}
+{{--                            <ul class="nav nav-pills m-t-30 m-b-30">--}}
+{{--                                <li class=" nav-item">--}}
+{{--                                    <a href="#nav-pills-1" class="nav-link active" data-toggle="tab" aria-expanded="false">Sales</a>--}}
+{{--                                </li>--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a href="#nav-pills-2" class="nav-link" data-toggle="tab" aria-expanded="false">Expenses</a>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+
+{{--                        </div>--}}
+{{--                    </div>--}}
+
+{{--                    <div class="tab-content br-n pn">--}}
+{{--                        <div id="nav-pills-1" class="tab-pane active">--}}
+{{--                            <div class="row">--}}
+{{--                                <h3>Hello</h3>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+
+
 
 	                <div class="col-md-12 mt-3">
 	                    <table class="table">
                             <thead>
                                 <tr>
-                                    <th class="font-weight-bold text-success">
+                                    <th class="text-capitalize text-center font-weight-bold text-success">
                                     	voucher number
                                     </th>
-                                    <th class="font-weight-bold text-success">
+                                    <th class="text-capitalize text-center font-weight-bold text-success">
                                     	total amount
                                     </th>
-                                    <th class="font-weight-bold text-success">
+                                    <th class="text-capitalize text-center font-weight-bold text-success">
                                     	total quantity
                                     </th>
-                                    <th class="font-weight-bold text-success">
+                                    <th class="text-capitalize text-center font-weight-bold text-success">
                                     	Table No.
                                     </th>
-                                    <th class="font-weight-bold text-success">
+                                    <th class="text-capitalize text-center font-weight-bold text-success">
                                     	date
                                     </th>
-                                    <th class="font-weight-bold text-success">
+                                    <th class="text-capitalize text-center font-weight-bold text-success">
                                     	action
                                     </th>
                                 </tr>
@@ -184,6 +223,7 @@
                         </table>
 	                </div>
                 </div>
+
                 <div class="allShopAndDeliOne py-5 text-dark" style="font-weight: 500;">
                     <div class="row">
                         <div class="col-md-3 offset-md-3 text-center">Shop total sale</div>
@@ -254,6 +294,7 @@
 
         if(data.allShopAndDeli==0){
             $('#total_sales').text(data.total_sales);
+            $('#total_expense').text(data.expenses_indate_amount);
 
             $('#profit').text(data.total_profit);
 
@@ -267,7 +308,7 @@
                 else{
                     var tableNumber = value.shop_order.table.table_number;
                 }
-                $('#sale_table').append($('<tr>')).append($('<td>').text(value.voucher_code)).append($('<td>').text(value.total_price)).append($('<td>').text(value.total_quantity)).append($('<td>').text(tableNumber)).append($('<td>').text(value.voucher_date)).append($('<td>').append($(button)));
+                $('#sale_table').append($('<tr>')).append($('<td>').text(value.voucher_code)).append($('<td>').text(value.total_price)).append($('<td>').text(value.total_quantity)).append($('<td>').text(tableNumber)).append($('<td>').text(value.date)).append($('<td>').append($(button)));
 
             });
             if(data.voucher_lists.length==0){
@@ -306,17 +347,12 @@
             }
 
 	function showDailySale() {
-
 		$('#total_sales').empty();
-
+		$('#total_expense').empty();
 		$('#sale_table').empty();
-
-		var  daily = $('#daily').val();
-
-        var shopOrdelivery= $( ".shopOrdelivery option:selected" ).val();
-
-		var  type  = 1;
-
+		let  daily = $('#daily').val();
+        let shopOrdelivery= $( ".shopOrdelivery option:selected" ).val();
+		let  type  = 1;
 		$.ajax({
            type:'POST',
            url:'/getTotalSaleReport',

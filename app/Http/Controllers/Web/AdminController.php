@@ -485,7 +485,9 @@ class AdminController extends Controller
             // dd($option_name);
 
             $orders = DB::table('option_shop_order')->orderBy('id','desc')->first();
-            // dd($orders);
+            $tableno = ShopOrder::find($orders->shop_order_id);
+
+            // dd($tableno->table_id);
             // console.log($option_name , $orders);
             $date = new DateTime('Asia/Yangon');
              $real_date = $date->format('d-m-Y h:i:s');
@@ -508,6 +510,7 @@ class AdminController extends Controller
                     'date' => $real_date,
                     'waiter' => $wname,
                     'order_table' => $orders,
+                    'tableno' => $tableno
                 ]);
             // }else{
                 // return response()->json(null);
@@ -537,33 +540,38 @@ class AdminController extends Controller
             if($type == 1){
 
                 $daily = date('Y-m-d', strtotime($request->value));
-
                     $shop_voucher_lists = Voucher::where('type',1)->whereDate('voucher_date',$daily)->get();
                     $delivery_voucher_lists = Voucher::where('type',2)->whereDate('voucher_date',$daily)->get();
-
                     $indate= Expense::whereDate('date',$request->value)->get();
-
                     foreach($indate as $exp_indate){
                         $expenses_indate_amount+=$exp_indate->amount;
                     }
-
-
+            }elseif ($type == 7){
+                $shop_voucher_lists = Voucher::where('type',1)->whereBetween('date', [$request->start_date, $request->end_date])->get();
+                $delivery_voucher_lists = Voucher::where('type',2)->whereBetween('date', [$request->start_date, $request->end_date])->get();
+                $indate= Expense::whereBetween('date', [$request->start_date, $request->end_date])->get();
+                foreach($indate as $exp_indate){
+                    $expenses_indate_amount+=$exp_indate->amount;
+                }
             }
 
             foreach($shop_voucher_lists as $shop_voucher_list){
-                foreach($shop_voucher_list->option as $shop_option){
-                    $shop_total_sale_price+=$shop_option->sale_price;
-                    $shop_total_est_price+=$shop_option->est_cost_price;
-                }
+                $shop_total_sale_price += $shop_voucher_list->total_price;
+
+//                foreach($shop_voucher_list->option as $shop_option){
+//                    $shop_total_sale_price+=$shop_option->sale_price;
+//                    $shop_total_est_price+=$shop_option->est_cost_price;
+//                }
             }
             foreach($delivery_voucher_lists as $delivery_voucher_list){
-                foreach($delivery_voucher_list->option as $delivery_option){
-                    $delivery_total_sale_price+=$delivery_option->sale_price;
-                    $delivery_total_est_price+=$delivery_option->est_cost_price;
-                }
+                $delivery_total_sale_price+=$delivery_voucher_list->total_price;
+
+//                foreach($delivery_voucher_list->option as $delivery_option){
+//                    $delivery_total_sale_price+=$delivery_option->sale_price;
+//                    $delivery_total_est_price+=$delivery_option->est_cost_price;
+//                }
             }
             $total_fixed_expense= $expenses_daily_amount;
-
 
             return response()->json([
                 "allShopAndDeli"=>1,
@@ -600,6 +608,27 @@ class AdminController extends Controller
                         $expenses_indate_amount+=$exp_indate->amount;
                     }
 
+            } elseif ($type == 7){
+
+                if($shopOrdelivery==1){
+                    $shop_deli_type=1;
+                }
+                elseif($shopOrdelivery==2){
+                    $shop_deli_type=2;
+                }
+                $voucher_lists = Voucher::whereBetween('date', [$request->start_date, $request->end_date])->where('type',$shop_deli_type)->with('shopOrder.table')->get();
+                foreach($voucher_lists as $voucher_list){
+                    foreach($voucher_list->option as $shop_option){
+                        $total_sale_price+=$shop_option->sale_price;
+                        $total_est_cost_price+=$shop_option->est_cost_price;
+                    }
+                }
+                $indate = Expense::whereBetween('date', [$request->start_date, $request->end_date])->get();
+
+                foreach($indate as $exp_indate){
+                    $expenses_indate_amount+=$exp_indate->amount;
+                }
+
             }
 
 
@@ -608,13 +637,15 @@ class AdminController extends Controller
                 "allShopAndDeli"=>0,
                 "total_sales" => $total_sale_price,
                 "total_est_price" => $total_est_cost_price,
-                "total_profit"=> $total_sale_price-$total_est_cost_price,
+//                "total_profit"=> $total_sale_price-$total_est_cost_price,
+                "total_profit"=> $total_sale_price-$expenses_indate_amount,
                 "voucher_lists" => $voucher_lists,
                 "expenses_indate_amount" => $expenses_indate_amount,
             ]);
         }
 
     }
+
     public function getTotalExpense(Request $request)
     {
 	    $expenses = Expense::where('date',$request->value)->get();

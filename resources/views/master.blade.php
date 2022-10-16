@@ -496,7 +496,7 @@ setInterval(() => {
                     if(data.order_table.id>mobileprint){
                     var items= ``;
                     var jj=0;
-
+                    // alert(data.tableno.table.table_number);
                     $.each(data.name, function(i,v){
 
                         if(v.menu_item.cuisine_type_id == 1){
@@ -588,7 +588,7 @@ setInterval(() => {
                             <div class="pull-right text-left" style="margin-top:20px;">
                                     <b style="font-size:16px;">Waiter Name : ${data.waiter}</b><br>
                                     <b style="font-size:16px;">Date : <i class="fa fa-calendar"></i> ${data.date}</b><br>
-                                    <b style="font-size:16px;">Table-Number : </b><br>
+                                    <b style="font-size:16px;">Table-Number : ${data.tableno.table.table_number}</b><br>
                                 </font>
                             </div>
                         </div>
@@ -639,7 +639,7 @@ setInterval(() => {
         }
     });
            }
-        }, 30000);
+        }, 15000);
 
         $( document ).ready(function() {
             $.ajax({
@@ -654,7 +654,7 @@ data:{
 
 success:function(data){
     var html = '';
-    if(data.shop != null){
+    if(data.shop.length != 0 ){
         // alert('hey');
         html += `
         <a href="{{route('pending_lists')}}">
@@ -667,7 +667,9 @@ success:function(data){
         `;
         $('#noti').html(html);
     }
-    if(data.deli != null){
+    if(data.deli.length != 0){
+        // alert(count(data.deli));
+        // alert(data.deli.length);
         html += `
         <a href="{{route('delivery_pending_lists')}}">
             <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>

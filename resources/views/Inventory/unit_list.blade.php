@@ -194,7 +194,7 @@
                     </div>
 
 
-                    <div id="education_fields">
+                    {{-- <div id="education_fields">
                     <div class="row">
                     <div class="col-sm-4">
                     <label>Ingredient</label>
@@ -209,12 +209,12 @@
                     <label>Action</label>
                     </div>
                     </div>
-                    </div>
+                    </div> --}}
 
                     <div class="form-group">
-                        <button type="button" class="btn btn-info float-right mb-3" data-toggle="modal" data-target="#add_item">
+                        {{-- <button type="button" class="btn btn-info float-right mb-3" data-toggle="modal" data-target="#add_item">
                             <i class="fa fa-plus"></i> Add Ingredient
-                        </button>
+                        </button> --}}
 
                         <div class="modal fade" id="add_item" role="dialog" aria-hidden="true">
                             <div class="modal-dialog" role="document">

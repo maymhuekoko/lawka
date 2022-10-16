@@ -21,9 +21,9 @@
         <h2 class="font-weight-bold">Shop Order</h2>
     </div>
 
-    <div class="cold-md-2 pull-right">
+    {{-- <div class="cold-md-2 pull-right">
         <a href="{{route('shop_order_sale', 0)}}" class="btn btn-outline-primary float-right">Take Away Order</a>
-    </div>
+    </div> --}}
 </div>
 
 <div class="row">
