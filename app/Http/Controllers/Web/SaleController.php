@@ -488,7 +488,7 @@ foreach($code_lists as $code){
 
 					$update_qty = $option->order_qty + $test->pivot->quantity;
 
-					$shop_order->option()->updateExistingPivot($option->id, ['quantity' => $update_qty,'tocook'=>1,'add_same_item_status'=>1,'old_quantity'=>$test->pivot->quantity,'new_quantity'=>$option->order_qty] );
+					$shop_order->option()->updateExistingPivot($option->id, ['quantity' => $update_qty,'tocook'=>1,'add_same_item_status'=>1,'old_quantity'=>$test->pivot->quantity,'new_quantity'=>$option->order_qty,'status' => 5] );
 
 				}
 

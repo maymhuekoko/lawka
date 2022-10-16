@@ -261,7 +261,7 @@ function change_price(){
     var change_value_dis = $('#change_amount_dis').val();
 
     // alert(change_value_dis);
-    if(change_value_dis>=0 && change_value>=0 && pay_vlaue>=0){
+    if(change_value_dis>=0 && change_value>=0){
         $.ajax({
 
         type:'POST',

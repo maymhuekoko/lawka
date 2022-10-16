@@ -482,7 +482,16 @@ class AdminController extends Controller
             $option_name = DB::table('option_shop_order')
             ->where('print',0)
             ->get();
-            // dd($option_name);
+            // dd(count($option_n));
+
+            // if(count($option_n) == 0 ){
+
+            // }
+            // else{
+            //     $option_name = $option_n;
+            // }
+
+
 
             $orders = DB::table('option_shop_order')->orderBy('id','desc')->first();
             $tableno = ShopOrder::find($orders->shop_order_id);
