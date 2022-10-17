@@ -639,7 +639,7 @@ setInterval(() => {
         }
     });
            }
-        }, 3000);
+        }, 10000);
 
         $( document ).ready(function() {
             $.ajax({
