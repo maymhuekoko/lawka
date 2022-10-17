@@ -480,7 +480,7 @@ class AdminController extends Controller
             // $orders = ShopOrder::where("is_mobile",1)->with('option')->with('table')->orderBy('id','desc')->first();
             // dd($orders->id);
             $option_n = DB::table('option_shop_order')
-            ->where('print',0)
+            ->where('status',7)
             ->get();
             // dd(count($option_n));
 
@@ -493,7 +493,7 @@ class AdminController extends Controller
                 $option_name = $option_n;
             }
 
-
+            // dd(count($option_name));
 
             $orders = DB::table('option_shop_order')->orderBy('id','desc')->first();
             $tableno = ShopOrder::find($orders->shop_order_id);
@@ -512,8 +512,8 @@ class AdminController extends Controller
 		}
         // dd($name);
         $print = DB::table('option_shop_order')
-            ->where('print',0)
-            ->update(['print' => 1]);
+            ->where('status',7)
+            ->update(['status' => 0]);
 
             $print1 = DB::table('option_shop_order')
             ->where('status',5)

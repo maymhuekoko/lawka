@@ -243,7 +243,7 @@ class SaleController extends Controller
 
 		            foreach ($option_lists as $option) {
 
-						$order->option()->attach($option->id, ['quantity' => $option->order_qty,'note' => null,'status' => 0]);
+						$order->option()->attach($option->id, ['quantity' => $option->order_qty,'note' => null,'status' => 7]);
 					}
 
 				} else {
@@ -275,7 +275,7 @@ class SaleController extends Controller
 
 			            foreach ($option_lists as $option) {
 
-							$order->option()->attach($option->id, ['quantity' => $option->order_qty,'note' => null,'status' => 0]);
+							$order->option()->attach($option->id, ['quantity' => $option->order_qty,'note' => null,'status' => 7]);
 						}
 					}
 				}
@@ -482,7 +482,7 @@ foreach($code_lists as $code){
 
 				if (empty($test)) {
 
-					$shop_order->option()->attach($option->id, ['quantity' => $option->order_qty,'tocook'=>1,'note' => "Note Default", 'status' => 0]);
+					$shop_order->option()->attach($option->id, ['quantity' => $option->order_qty,'tocook'=>1,'note' => "Note Default", 'status' => 5]);
 
 				} else {
 
