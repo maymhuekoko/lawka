@@ -689,32 +689,32 @@ Swal.fire({
 }
 else{
 
-swal("Please Enter Quantity:", {
-    content: "input",
-})
+// swal("Please Enter Quantity:", {
+//     content: "input",
+// })
 
-.then((value) => {
-    if(value.toString().match(/^\d+$/)){
-    if (value > qty ) {
+// .then((value) => {
+//     if(value.toString().match(/^\d+$/)){
+//     if (value > qty ) {
 
-        swal({
-            title:"Can't Add",
-            text:"Your Input is higher than Current Quantity!",
-            icon:"info",
-        });
+//         swal({
+//             title:"Can't Add",
+//             text:"Your Input is higher than Current Quantity!",
+//             icon:"info",
+//         });
 
-    }else{
+//     }else{
 
         // alert('hello!');
 
         $('.note_class').hide();
 
 
-        var total_price = price * value ;
+        var total_price = price * 1 ;
 
-        var item={id:id,item_name:item_name,unit_name:name,current_qty:qty,order_qty:value,selling_price:price};
+        var item={id:id,item_name:item_name,unit_name:name,current_qty:qty,order_qty:1,selling_price:price};
         console.log(item);
-        var total_amount = {sub_total:total_price,total_qty:value};
+        var total_amount = {sub_total:total_price,total_qty:1};
 
         var mycart = localStorage.getItem('mycart');
 
@@ -744,7 +744,7 @@ swal("Please Enter Quantity:", {
 
                     hasid = true;
 
-                    v.order_qty = parseInt(value) + parseInt(v.order_qty);
+                    v.order_qty = parseInt(1) + parseInt(v.order_qty);
                 }
             })
 
@@ -766,7 +766,7 @@ swal("Please Enter Quantity:", {
 
             grand_total_obj.sub_total = total_price + grand_total_obj.sub_total;
 
-            grand_total_obj.total_qty = parseInt(value) + parseInt(grand_total_obj.total_qty);
+            grand_total_obj.total_qty = parseInt(1) + parseInt(grand_total_obj.total_qty);
 
             localStorage.setItem('grandTotal',JSON.stringify(grand_total_obj));
         }
@@ -776,16 +776,16 @@ swal("Please Enter Quantity:", {
         showmodal();
 
     }
-    }else{
-        swal({
-            title:"Input Invalid",
-            text:"Please only input english digit",
-            icon:"info",
-        });
-    }
-})
+//     }else{
+//         swal({
+//             title:"Input Invalid",
+//             text:"Please only input english digit",
+//             icon:"info",
+//         });
+//     }
+// })
 
-}
+// }
 }
 
     function showmodal(){
